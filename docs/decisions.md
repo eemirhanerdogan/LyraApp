@@ -2,10 +2,10 @@
 
 Bu doküman, LyraApp projesinin geliştirme sürecinde alınan teknik kararları ve uygulanan kısıtlamaları listeler.
 
-## 1. Login Ekranı Geliştirmesi
-*   **MVI Geçişi:** Login ekranı Jetpack Compose Material 3 kullanılarak MVI (Model-View-Intent) mimarisine uygun şekilde yeniden yapılandırılmıştır.
-*   **State Yönetimi:** `LoginUiState` ile ekranın tüm durumu tek bir noktadan yönetilmektedir.
-*   **Navigasyon:** `LoginEffect.NavigateToHome` ve `LoginEffect.NavigateToRegister` gibi navigasyon olayları efekt olarak tanımlanmıştır. Henüz bir Navigation Graph kurulu olmadığı için bu olaylar callback seviyesinde `MainActivity`'ye iletilmektedir.
+## 1. Ekran Geliştirmeleri
+*   **MVI Geçişi:** Login ve Register ekranları Jetpack Compose Material 3 kullanılarak MVI (Model-View-Intent) mimarisine uygun şekilde yapılandırılmıştır.
+*   **State Yönetimi:** Her ekranın durumu (LoginUiState, RegisterUiState) kendi contract dosyalarında tanımlanmış olup tek bir noktadan yönetilmektedir.
+*   **Navigasyon:** Navigasyon olayları (NavigateToHome, NavigateToLogin vb.) Effect olarak tanımlanmıştır. Henüz merkezi bir NavHost kurulmadığı için bu olaylar callback seviyesinde üst katmanlara iletilmektedir.
 *   **Bağımlılık Yönetimi:** Projeye herhangi bir yeni `dependency` eklenmemiştir.
 *   **Tema ve Tipografi Uyumu:** `LyraApp Theme` ve `LyraTypography` sistemi ile tam uyumlu geliştirilmiştir.
 *   **Paket Yapısı:** `com.example.lyraapp` paket yapısı korunmuştur.
