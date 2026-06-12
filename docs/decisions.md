@@ -19,6 +19,8 @@ Projenin ölçeklenebilirliği ve test edilebilirliği için aşağıdaki mimari
 *   **Annotation Processing:** Daha hızlı derleme ve Kotlin 2.2.10 uyumu için **KSP (v2.2.10-2.0.2)** seçilmiştir.
 *   **Navigasyon (Planlanan):** Ekranlar arası geçişler için **Jetpack Compose Navigation (v2.8.5)** kullanımı planlanmaktadır.
 *   **Lifecycle Yönetimi:** State'lerin güvenli tüketimi için `lifecycle-runtime-compose` kütüphanesi eklenmiştir.
-*   **Veri Katmanı:** Backend servisleri hazır olana kadar **Fake Repository** (Interface + Implementation) yaklaşımı kullanılacaktır.
+*   **Veri Katmanı:**
+    *   **Fake Repository:** Backend servisleri henüz hazır olmadığı için `AuthRepository` için `FakeAuthRepository` implementasyonu oluşturulmuştur.
+    *   **Soyutlama:** ViewModel katmanı doğrudan `AuthRepository` arayüzüne bağımlıdır. Gerçek API entegrasyonu yapıldığında, ViewModel ve UI katmanına dokunulmadan sadece repository implementasyonu değiştirilecektir.
 *   **Paketleme:** Tüm MVI bileşenleri `com.example.lyraapp` paketi altında organize edilecektir.
 *   **Gradle Yapılandırması:** AGP 9 ve KSP uyumu için `android.disallowKotlinSourceSets=false` ayarı `gradle.properties` dosyasına eklenmiştir.
